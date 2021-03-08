@@ -22,7 +22,7 @@ github_repo: hadenlabs/terraform-aws-rds
 # Badges to display
 badges:
   - name: Lint
-    image: 'https://github.com/hadenlabs/terraform-aws-rdsactions/workflows/lint.yml/badge.svg?branch=develop'
+    image: 'https://github.com/hadenlabs/terraform-aws-rds/actions/workflows/lint.yml/badge.svg?branch=develop'
     url: 'https://github.com/hadenlabs/terraform-aws-rds/actions'
   - name: 'Issues'
     image: "https://img.shields.io/github/issues/hadenlabs/terraform-aws-rds.svg"
