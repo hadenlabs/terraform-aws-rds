@@ -14,22 +14,25 @@ email:
 #logo: docs/logo.png
 
 # License of this project
-license: 'MIT'
+license: 'LGPL-3.0'
 
 # Canonical GitHub repo
 github_repo: hadenlabs/terraform-aws-rds
 
 # Badges to display
 badges:
+  - name: GitHub tag (latest SemVer)
+    image: https://img.shields.io/github/v/tag/hadenlabs/terraform-aws-rds.svg?label=latest&sort=semver
+    url: https://github.com/hadenlabs/terraform-aws-rds/releases
   - name: Lint
-    image: 'https://github.com/hadenlabs/terraform-aws-rds/actions/workflows/lint.yml/badge.svg?branch=develop'
-    url: 'https://github.com/hadenlabs/terraform-aws-rds/actions'
-  - name: 'Issues'
-    image: "https://img.shields.io/github/issues/hadenlabs/terraform-aws-rds.svg"
-    url: "https://github.com/hadenlabs/terraform-aws-rds/issues"
-  - name: 'Latest Release'
-    image: 'https://img.shields.io/github/release/hadenlabs/terraform-aws-rds.svg'
-    url: 'https://github.com/hadenlabs/terraform-aws-rds/releases'
+    image: https://github.com/hadenlabs/terraform-aws-rds/actions/workflows/lint.yml/badge.svg?branch=develop
+    url: https://github.com/hadenlabs/terraform-aws-rds/actions
+  - name: Issues
+    image: https://img.shields.io/github/issues/hadenlabs/terraform-aws-rds.svg
+    url: https://github.com/hadenlabs/terraform-aws-rds/issues
+  - name: Latest Release
+    image: https://img.shields.io/github/release/hadenlabs/terraform-aws-rds.svg
+    url: https://github.com/hadenlabs/terraform-aws-rds/releases
 
 # Short description of this project
 description: |-
@@ -37,20 +40,20 @@ description: |-
 
 # How to use this project
 usage: |-
+
   ```hcl
     module "main" {
-      source = "github.com/hadenlabs/terraform-aws-rds"
-
-      name        = "repository-example"
-
+      source = "hadenlabs/rds/aws"
+      version   = "0.0.0"
     }
+
   ```
 
-  Full working example can be found in [example](./example) folder.
+  Full working examples can be found in [examples](./examples) folder.
+
+examples:
+  - 'docs/examples/common.md'
 
 include:
   - 'docs/include/targets.md'
   - 'docs/include/terraform.md'
-
-examples:
-  - 'docs/examples/common.md'
