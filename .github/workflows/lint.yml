@@ -1,15 +1,14 @@
-
 name: lint code
 
 on:
   schedule:
     - cron: '0 0 * * *' # every day at midnight
 
-  pull_request:
+  push:
     branches:
       - develop
 
-  push:
+  pull_request:
     branches:
       - develop
 
@@ -20,9 +19,9 @@ env:
   LC_ALL: en_US.UTF-8
 
 jobs:
-  build:
+  precommit:
     name: build
-    runs-on: Ubuntu-20.04
+    runs-on: ubuntu-20.04
     env:
       LANG: en_US.UTF-8
       LC_ALL: en_US.UTF-8
@@ -74,4 +73,3 @@ jobs:
 
       - name: execute pre-commit
         run: pipenv run pre-commit run --all-files
-
