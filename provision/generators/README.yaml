@@ -21,18 +21,21 @@ github_repo: hadenlabs/terraform-aws-rds
 
 # Badges to display
 badges:
-  - name: GitHub tag (latest SemVer)
-    image: https://img.shields.io/github/v/tag/hadenlabs/terraform-aws-rds.svg?label=latest&sort=semver
+  - name: Latest Release
+    image: https://img.shields.io/github/release/hadenlabs/terraform-aws-rds
     url: https://github.com/hadenlabs/terraform-aws-rds/releases
   - name: Lint
-    image: https://github.com/hadenlabs/terraform-aws-rds/actions/workflows/lint.yml/badge.svg?branch=develop
-    url: https://github.com/hadenlabs/terraform-aws-rds/actions
-  - name: Issues
-    image: https://img.shields.io/github/issues/hadenlabs/terraform-aws-rds.svg
-    url: https://github.com/hadenlabs/terraform-aws-rds/issues
-  - name: Latest Release
-    image: https://img.shields.io/github/release/hadenlabs/terraform-aws-rds.svg
-    url: https://github.com/hadenlabs/terraform-aws-rds/releases
+    image: https://img.shields.io/github/workflow/status/hadenlabs/terraform-aws-rds/lint-code
+    url: https://github.com/hadenlabs/terraform-aws-rds/actions?workflow=lint-code
+  - name: pre-commit
+    image: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+    url: https://github.com/pre-commit/pre-commit
+  - name: Conventional Commits
+    image: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow
+    url: https://conventionalcommits.org
+  - name: KeepAChangelog
+    image: https://img.shields.io/badge/Keep%20A%20Changelog-1.0.0-%23E05735
+    url: https://keepachangelog.com
 
 # Short description of this project
 description: |-
