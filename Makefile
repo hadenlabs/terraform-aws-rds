@@ -25,11 +25,13 @@ AWS_VAULT ?= ${TEAM}
 PROJECT := terraform-aws-rds
 
 PYTHON_VERSION=3.8.0
-NODE_VERSION=14.15.5
+NODE_VERSION=14.16.1
 PYENV_NAME="${PROJECT}"
 GIT_IGNORES:=python,node,go,terraform
 GI:=gi
 
+# issues reviewers
+REVIEWERS?=luismayta
 
 # Configuration.
 SHELL ?=/bin/bash
@@ -40,27 +42,12 @@ SOURCE_DIR=$(ROOT_DIR)
 PROVISION_DIR:=$(ROOT_DIR)/provision
 DOCS_DIR:=$(ROOT_DIR)/docs
 README_TEMPLATE:=$(PROVISION_DIR)/templates/README.tpl.md
-TERRAFORM_README_FILE := docs/include/terraform.md
 
 export README_FILE ?= README.md
 export README_YAML ?= provision/generators/README.yaml
 export README_INCLUDES ?= $(file://$(shell pwd)/?type=text/plain)
 
 FILE_README:=$(ROOT_DIR)/README.md
-
-PATH_DOCKER_COMPOSE:=docker-compose.yml -f provision/docker-compose
-
-DOCKER_SERVICE_DEV:=app
-DOCKER_SERVICE_TEST:=app
-
-docker-compose:=$(PIPENV_RUN) docker-compose
-
-docker-test:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/test.yml
-docker-dev:=$(docker-compose) -f ${PATH_DOCKER_COMPOSE}/dev.yml
-
-docker-test-run:=$(docker-test) run --rm ${DOCKER_SERVICE_TEST}
-docker-dev-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_DEV}
-docker-yarn-run:=$(docker-dev) run --rm --service-ports ${DOCKER_SERVICE_YARN}
 
 include provision/make/*.mk
 
@@ -82,7 +69,6 @@ help:
 ## Create README.md by building it from README.yaml
 .PHONY: readme
 readme:
-	@make terraform.docs
 	@gomplate --file $(README_TEMPLATE) \
 		--out $(README_FILE)
 
