@@ -1,4 +1,3 @@
-
 <!--
 
 
@@ -15,13 +14,13 @@
 
 {{ defineDatasource "config" .Env.README_YAML | regexp.Replace ".*" "" }} {{ defineDatasource "includes" .Env.README_INCLUDES | regexp.Replace ".*" "" }}
 
-# {{(ds "config").name}}{{ if gt (len (ds "config").name) 34 }}{{ print "\n\n" }}{{ end }}
 {{ if has (ds "config") "badges" }}{{- range $badge := (ds "config").badges -}}{{ printf " [![%s](%s)](%s)" $badge.name $badge.image $badge.url }}{{ end }}{{ end }}
+
+# {{(ds "config").name}}{{ if gt (len (ds "config").name) 34 }}{{ print "\n\n" }}{{ end }}
 
 {{ if has (ds "config") "logo" }} ![{{(ds "config").name}}]({{ (ds "config").logo }}) {{- end -}}
 
 {{ if has (ds "config") "description" }} {{(ds "config").description }} {{ end }}
-
 
 {{ if has (ds "config") "screenshots" }}
 
@@ -45,7 +44,7 @@
 
 {{ if has (ds "config") "todo" }}
 
-## To-do
+## TODO
 
 {{ range $todo := (ds "config").todo }}
 {{ printf "* [%s](%s)" $todo.name $todo.url }}
@@ -205,4 +204,3 @@ The code and styles are licensed under the {{(ds "config").license }} license [S
 ## Don't forget to 🌟 Star 🌟 the repo if you like {{(ds "config").name}}
 
 [Your feedback is appreciated]({{ printf "https://github.com/%s/issues" (ds "config").github_repo}})
-
